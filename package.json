@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "clear": "rm -rf node_modules package-lock.json .next artifacts cache",
-    "deploy": "hardhat run scripts/deploy.js --network holesky",
+    "deploy": "hardhat run scripts/deploy.js --network sepolia",
     "deploy-local": "hardhat run scripts/deploy.js --network localhost",
     "node": "hardhat node"
   },
@@ -27,6 +27,9 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "hardhat": "^2.12.0"
+    "autoprefixer": "^10.4.17",
+    "hardhat": "^2.12.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
   }
 }

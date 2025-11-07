@@ -9,11 +9,11 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    holesky: {
-      url: process.env.HOLESKY_URL || process.env.HOLESKY_URL_OPTIONAL,
+    sepolia: {
+      url: process.env.SEPOLIA_URL || process.env.SEPOLIA_URL_OPTIONAL,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-      chainId: 17000,
+      chainId: 11155111,
     },
   },
   paths: {

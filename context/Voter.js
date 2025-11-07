@@ -128,8 +128,8 @@ export const VotingProvider = ({ children }) => {
     try {
       const { name, address, position } = formInput;
       const connectAddress = await checkIfWalletIsConnected();
-      if (connectAddress == CONTRACT_OWNER)
-        return setError("Only Ower Of Contract Can Create Voter");
+      if (connectAddress.toLowerCase() !== CONTRACT_OWNER.toLowerCase())
+        return setError("Only Owner Of Contract Can Create Voter");
 
       if (!name || !address || !position)
         return setError("Input Data is missing");
@@ -170,8 +170,8 @@ export const VotingProvider = ({ children }) => {
   const setCandidate = async (candidateForm, fileUrl, router) => {
     const { name, address, age } = candidateForm;
     const connectAddress = await checkIfWalletIsConnected();
-    if (connectAddress == CONTRACT_OWNER)
-      return setError("Only Ower Of Contract Can Create Candidate");
+    if (connectAddress.toLowerCase() !== CONTRACT_OWNER.toLowerCase())
+      return setError("Only Owner Of Contract Can Create Candidate");
     try {
       if (!name || !address || !age) return console.log("Data Missing");
       setLoader(true);
@@ -264,7 +264,7 @@ export const VotingProvider = ({ children }) => {
   const giveVote = async (id) => {
     try {
       const connectAddress = await checkIfWalletIsConnected();
-      if (connectAddress == CONTRACT_OWNER)
+      if (connectAddress.toLowerCase() === CONTRACT_OWNER.toLowerCase())
         return setError("Owner Can not give vote");
       setLoader(true);
       const voterAddress = id.address;
